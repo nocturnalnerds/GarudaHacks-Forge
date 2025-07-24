@@ -1,12 +1,33 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Map from './components/Map'; 
+
+// Import all your page components
+import Landing from './pages/Landing/Landing';
+import Register from './pages/Auth/Register';
+import Login from './pages/Auth/Login';
+import Home from './pages/Home/Home';
+import Game from './pages/Game/Game';
+import CeritaRakyat from './components/CeritaRakyat';
+import Rules from './pages/Test/Rules';
+import Test from './pages/Test/Test';
+import Exam from './pages/Exam/Exam';
+import Scoring from './pages/Scoring/Scoring';
 
 function App() {
   return (
-    <div className="App">
-      <Map />
-    </div>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/cerita-rakyat" element={<CeritaRakyat />} />
+      <Route path="/game" element={<Game />} />
+      <Route path="/rules" element={<Rules />} />
+      <Route path="/test" element={<Test />} />
+      <Route path="/exam" element={<Exam />} />
+      <Route path="/scoring" element={<Scoring />} />
+    </Routes>
   );
 }
 
