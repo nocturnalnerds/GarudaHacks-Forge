@@ -28,25 +28,142 @@
   position: absolute;
   width: 100px;
   height: auto;
-  transform: translate(-100%, -100%);
+  transform: translate(-60%, -70%);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
   z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
 }
 
 .icon:hover {
   transform: translate(-100%, -100%) scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) 
+          drop-shadow(0 0 40px rgba(255, 215, 0, 0.6))
+          drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+  animation: pulse-glow 1.5s ease-in-out infinite alternate;
 }
 
-/* === Individual icon positions (desktop first) === */
+@keyframes pulse-glow {
+  0% {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) 
+            drop-shadow(0 0 40px rgba(255, 215, 0, 0.6))
+            drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1)) 
+            drop-shadow(0 0 50px rgba(255, 215, 0, 0.8))
+            drop-shadow(0 0 80px rgba(255, 215, 0, 0.6));
+  }
+}
+
+/* === Icon: Sumatra (Piso) === */
 .piso-icon {
-  top: 47%;
-  left: 22%;
+  position: absolute;
+  width: 300px;
+  height: auto;
+  top: 52%;
+  left: 30%;
+  transform: translate(-100%, -100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
 }
 
+.piso-icon:hover {
+  transform: translate(-100%, -100%) scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) 
+          drop-shadow(0 0 40px rgba(255, 215, 0, 0.6))
+          drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+  animation: pulse-glow 1.5s ease-in-out infinite alternate;
+}
+
+/* === Icon: Java (Candi) === */
 .candi-icon {
+  position: absolute;
+  width: 250px;
+  height: auto;
   top: 72%;
-  left: 32%;
+  left: 45%;
+  transform: translate(-100%, -100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+.candi-icon:hover {
+  transform: translate(-100%, -100%) scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) 
+          drop-shadow(0 0 40px rgba(255, 215, 0, 0.6))
+          drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+  animation: pulse-glow 1.5s ease-in-out infinite alternate;
+}
+
+/* === Icon: Kalimantan (Rotterdam) === */
+.rotterdam-icon {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  top: 55%;
+  left: 70%;
+  transform: translate(-100%, -100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+.rotterdam-icon:hover {
+  transform: translate(-100%, -100%) scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) 
+          drop-shadow(0 0 40px rgba(255, 215, 0, 0.6))
+          drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+  animation: pulse-glow 1.5s ease-in-out infinite alternate;
+}
+
+/* === Icon: Sulawesi (Tugu) === */
+.tugu-icon {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  top: 50%;
+  left: 53%;
+  transform: translate(-100%, -100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+.tugu-icon:hover {
+  transform: translate(-100%, -100%) scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) 
+          drop-shadow(0 0 40px rgba(255, 215, 0, 0.6))
+          drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+  animation: pulse-glow 1.5s ease-in-out infinite alternate;
+}
+
+/* === Icon: Papua (Honai) === */
+.honai-icon {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  top: 60%;
+  left: 100%;
+  transform: translate(-100%, -100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+.honai-icon:hover {
+  transform: translate(-100%, -100%) scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) 
+          drop-shadow(0 0 40px rgba(255, 215, 0, 0.6))
+          drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+  animation: pulse-glow 1.5s ease-in-out infinite alternate;
 }
 
 /* === Mobile Overrides === */
@@ -66,5 +183,15 @@
     height: auto;
   }
 
-  /* You may need to fine-tune icon % positions for mobile layout */
+  /* Reduce glow intensity on mobile for better performance */
+  .icon:hover,
+  .piso-icon:hover,
+  .candi-icon:hover,
+  .rotterdam-icon:hover,
+  .tugu-icon:hover,
+  .honai-icon:hover {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6)) 
+            drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));
+    animation: none; /* Disable animation on mobile for performance */
+  }
 }
