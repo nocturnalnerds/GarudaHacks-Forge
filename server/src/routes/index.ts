@@ -1,8 +1,11 @@
 import { Router } from "express";
+<<<<<<< HEAD
 import { getUserSolvedQuizzes, getQuizById } from "../controllers/QuizController";
 import { login, register } from "../controllers/AuthController";
 import { toggleUserSolvedQuiz } from "../controllers/QuizController";
 import { getWordOfTheDay, sentenceOfTheDay } from "../controllers/WSOTDController";
+=======
+>>>>>>> 5e32caca5dc076b38f77975f1597e1e7365e23ba
 
 const router = Router();
 
@@ -13,6 +16,7 @@ router.get("/", (_, response) => {
   });
 });
 
+<<<<<<< HEAD
 router.post("/login", login);
 router.post("/register", register);
 
@@ -31,6 +35,8 @@ wordRouter.post("/sotd", sentenceOfTheDay);
 
 router.use("/word", wordRouter);
 
+=======
+>>>>>>> 5e32caca5dc076b38f77975f1597e1e7365e23ba
 /**
  * Insert your router here
  * @example router.use("/example", exampleRouter)
