@@ -1,0 +1,70 @@
+/* Outer container with background always filling screen */
+.full-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Inner container (for scrollable map on mobile) */
+.map-inner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive map image */
+.responsive-map {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Shared icon styles */
+.icon {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  transform: translate(-100%, -100%);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 2;
+}
+
+.icon:hover {
+  transform: translate(-100%, -100%) scale(1.1);
+}
+
+/* === Individual icon positions (desktop first) === */
+.piso-icon {
+  top: 47%;
+  left: 22%;
+}
+
+.candi-icon {
+  top: 72%;
+  left: 32%;
+}
+
+/* === Mobile Overrides === */
+@media (max-width: 768px) {
+  .full-wrapper {
+    overflow: auto;
+    touch-action: pan-x pan-y;
+  }
+
+  .map-inner-wrapper {
+    width: 250vw; /* allow horizontal scroll */
+    height: auto;
+  }
+
+  .responsive-map {
+    width: 100%;
+    height: auto;
+  }
+
+  /* You may need to fine-tune icon % positions for mobile layout */
+}
