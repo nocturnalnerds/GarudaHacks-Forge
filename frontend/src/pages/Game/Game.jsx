@@ -5,6 +5,7 @@ import './Game.css';
 // Import your local images
 import guruImage from '../../assets/images/guru.png';
 import bumiImage from '../../assets/images/bumi.png';
+import wotdImage from '../../assets/images/wotd.png'; // Import the new image
 
 function Game() {
   return (
@@ -15,10 +16,17 @@ function Game() {
       <h1 className="game-title">Pilihlah opsi</h1>
       <div className="game-options">
         <div className="option-wrapper">
-          <Link to="#" className="game-card">
+          <Link to="/selector" className="game-card">
             <img src={guruImage} alt="Guru" />
           </Link>
           <div className="option-label">Guru</div>
+        </div>
+        {/* New Middle Option */}
+        <div className="option-wrapper">
+          <Link to="/wotd" className="game-card"> {/* Assuming the route is /wotd */}
+            <img src={wotdImage} alt="WOTD" />
+          </Link>
+          <div className="option-label">WOTD</div>
         </div>
         <div className="option-wrapper">
           <Link to="/game-rules" className="game-card">

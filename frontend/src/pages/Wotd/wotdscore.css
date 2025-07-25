@@ -1,0 +1,75 @@
+/* Main container for the WotD Score page */
+.wotd-score-container {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center;
+  padding: 2rem;
+  color: #3e2d20;
+  text-align: center;
+}
+
+/* Main title "Word of the Day" */
+.wotd-score-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: bold;
+  color: #3e2723;
+  margin-bottom: 2rem;
+}
+
+/* Container for the revealed answer */
+.revealed-answer-container {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid #d3c5a8;
+  border-radius: 15px;
+  padding: 1.5rem 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.revealed-answer-label {
+  font-size: 1.2rem;
+  color: #5d4037;
+  margin: 0;
+}
+
+.revealed-answer-word {
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: bold;
+  color: #3e2723;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+/* Success message "JAWABAN KAMU BENAR" */
+.success-message {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #43a047; /* A success green color */
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+/* Kembali (Back) button styling, copied from Kirim button */
+.kembali-button {
+  padding: 0.8rem 3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #694C28; /* Matching Kirim button */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline from Link */
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.kembali-button:hover {
+  background-color: #5a3f1e; /* Darker shade for hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}

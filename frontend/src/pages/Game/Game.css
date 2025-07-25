@@ -33,7 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: clamp(2rem, 8vw, 6rem);
+  gap: clamp(2rem, 6vw, 4rem); /* Adjusted gap for 3 items */
   flex-wrap: wrap;
   width: 100%;
   margin-top: 0.5rem; /* Raise images */
@@ -45,9 +45,14 @@
   align-items: center;
 }
 
-.option-wrapper:hover .option-card {
+.option-wrapper:hover .game-card { /* Corrected class selector */
   transform: scale(1.05) translateY(-10px);
+  transition: transform 0.3s ease; /* Added transition for smoothness */
 }
+.game-card {
+  transition: transform 0.3s ease; /* Added transition for smoothness */
+}
+
 
 .option-label {
   margin-top: 1.5rem;
@@ -56,6 +61,7 @@
   color: #3e2d20;
   text-align: center;
   letter-spacing: 0.5px;
+  transition: color 0.3s ease; /* Added transition */
 }
 
 .option-wrapper:hover .option-label {
@@ -63,8 +69,8 @@
 }
 
 .game-card img {
-  width: clamp(220px, 22vw, 340px); /* Slightly larger images */
-  height: clamp(220px, 22vw, 340px);
+  width: clamp(200px, 20vw, 300px); /* Slightly adjusted for 3 items */
+  height: clamp(200px, 20vw, 300px); /* Slightly adjusted for 3 items */
   object-fit: cover;
   display: block;
 }

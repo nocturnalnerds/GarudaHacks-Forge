@@ -17,6 +17,9 @@ import Map from './components/Map';
 import Malin from './components/MalinKundang';
 import GameRules from './pages/Game/GameRules';
 import Language from './components/Language';
+import Selector from './pages/Selector/Selector';
+import Wotd from './pages/Wotd/Wotd';
+import WotdScore from './pages/Wotd/wotdscore';
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
       <Route path="/malinkundang" element={<Malin />} />
       <Route path="/game-rules" element={<GameRules />} />
       <Route path="/language" element={<Language />} />
+      <Route path="/selector" element={<Selector />} />
+      <Route path="/wotd" element={<Wotd />} />
+      <Route path="/wotdscore" element={<WotdScore />} />
     </Routes>
   );
 }
