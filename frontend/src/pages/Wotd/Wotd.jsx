@@ -23,28 +23,18 @@ function Wotd() {
   const [isLoading, setIsLoading] = useState(true);
 
 
-  // --- Data and Language Synchronization ---
-  useEffect(() => {
-    setIsLoading(true);
-    const newWordData = wotdDataByLang[selectedLang];
     
-    // Simulate fetching delay
-    setTimeout(() => {
-      setWordData(newWordData);
-      setUserInput(''); // Reset input when language changes
-      setIsLoading(false);
-    }, 500); // A short delay for transition
-  }, [selectedLang]); // Re-run this effect when selectedLang changes
   useEffect(() => {
     const fetchWordOfTheDay = async () => {
       setIsLoading(true);
       const apiUrl = import.meta.env.VITE_BE_API;
       try {
         const response = await axios.post(`${apiUrl}/wotd/${selectedLang}`);
-        setWordData(response.data.wotd);
-        setWordDescription(response.data.definisi)
-        setWordTranslation(response.data.translation)
-        setWordExample(response.data.example)
+        console.log(response);
+          setWordData(response.data.wotd);
+          setWordDescription(response.data.definisi)
+          setWordTranslation(response.data.translation)
+          setWordExample(response.data.example)
       } catch (error) {
         console.error('Failed to fetch word of the day:', error);
       } finally {
@@ -62,9 +52,10 @@ function Wotd() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userInput || !wordData) return;
-    if (userInput === wordData.word.toUpperCase()) {
+    if (wordData && wordData.word && userInput === wordData.word.toUpperCase()) {
       navigate('/wotdscore', { state: { word: wordData.word } });
     } else {
+      console.log(wordData)
       alert('Jawaban masih salah, silakan coba lagi!');
     }
   };

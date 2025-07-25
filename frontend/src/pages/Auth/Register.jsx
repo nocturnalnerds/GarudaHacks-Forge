@@ -10,6 +10,7 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  
   const handleRegister = async (e) => {
     e.preventDefault();
     setErrorMsg('');
@@ -26,6 +27,13 @@ function Register() {
         setErrorMsg('Login Gagal. Tolong cek kembali data Anda.');
       }
     }
+  };
+
+  const handleGuestLogin = () => {
+    // Set a guest token or flag to identify guest users
+    localStorage.setItem('token', 'guest');
+    localStorage.setItem('userType', 'guest');
+    navigate('/home');
   };
 
   return (
@@ -69,6 +77,11 @@ function Register() {
           />
         </div>
         <button type="submit" className="auth-button">Sign Up</button>
+        
+        <button type="button" className="guest-button" onClick={handleGuestLogin}>
+          Continue as Guest
+        </button>
+        
         <p className="auth-switch">
           Already have an account? <Link to="/login">Login</Link>
         </p>

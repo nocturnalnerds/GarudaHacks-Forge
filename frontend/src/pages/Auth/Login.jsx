@@ -30,6 +30,13 @@ function Login() {
     }
   };
 
+  const handleGuestLogin = () => {
+    // Set a guest token or flag to identify guest users
+    localStorage.setItem('token', 'guest');
+    localStorage.setItem('userType', 'guest');
+    navigate('/home');
+  };
+
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleLogin}>
@@ -62,6 +69,10 @@ function Login() {
         </div>
 
         <button type="submit" className="auth-button">Login</button>
+
+        <button type="button" className="guest-button" onClick={handleGuestLogin}>
+          Continue as Guest
+        </button>
 
         <p className="auth-switch">
           Don't have an account? <Link to="/register">Sign Up</Link>

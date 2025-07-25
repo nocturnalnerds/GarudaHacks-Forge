@@ -7,9 +7,9 @@ const prisma = new PrismaClient();
 
 export const login: RequestHandler = async (req, res, next) => {
     try{
-        const { name, password } = req.body;
+        const { email, password } = req.body;
 
-        const userFound = await prisma.user.findFirst({ where: { name } });
+        const userFound = await prisma.user.findFirst({ where: { email } });
         if (!userFound) {
             res.status(401).json({ message: "Invalid credentials" });
             return;
