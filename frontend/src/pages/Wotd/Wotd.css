@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  /* UPDATED: Font family now matches the rest of the project */
   font-family: 'Montagu Slab', system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: #3e2d20; 
   position: relative;
@@ -19,9 +18,13 @@
   position: absolute;
   top: 2rem;
   left: 2rem;
-  font-size: 2rem; 
+  font-size: 2.5rem; 
   color: #333; 
   text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  padding: 0 15px;
+  z-index: 3;
   transition: all 0.3s ease;
 }
 
@@ -29,6 +32,42 @@
   transform: scale(1.1);
 }
 
+/* --- [NEW] Top Right Controls --- */
+.top-right-controls {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 20; 
+}
+
+.speaker-button {
+  background: none;
+  border: none;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #4d3a2a;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0;
+  z-index: 21;
+}
+
+.speaker-button:hover {
+  transform: scale(1.1);
+}
+
+.language-selector select {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #4d3a2a;
+  background-color: #fff;
+  color: #4d3a2a;
+  cursor: pointer;
+  font-weight: 600;
+}
 
 /* Main title "Word of the Day" */
 .wotd-title {
@@ -136,4 +175,24 @@
 .loading-text {
     font-size: 1.5rem;
     color: #5d4037;
+}
+
+/* --- [NEW] Responsive Design --- */
+@media (max-width: 768px) {
+  .wotd-container {
+    padding-top: 7rem; /* Push content down to avoid overlap */
+    justify-content: flex-start;
+  }
+
+  .back-arrow-wotd, .top-right-controls {
+    top: 1.5rem;
+  }
+  .back-arrow-wotd { left: 1.5rem; }
+  .top-right-controls { right: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .wotd-title {
+    margin-top: 0;
+  }
 }

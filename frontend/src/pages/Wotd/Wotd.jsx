@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Wotd.css';
+<<<<<<< HEAD
 import axios from 'axios';
 
 function Wotd() {
   const navigate = useNavigate();
+=======
+>>>>>>> 44cc7cb28540ca307cce4087a84bf8ee5685be47
 
   const languages = [
     { code: 'indonesia', name: 'Indonesia' },
@@ -21,6 +24,19 @@ function Wotd() {
   const [userInput, setUserInput] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
+
+  // --- Data and Language Synchronization ---
+  useEffect(() => {
+    setIsLoading(true);
+    const newWordData = wotdDataByLang[selectedLang];
+    
+    // Simulate fetching delay
+    setTimeout(() => {
+      setWordData(newWordData);
+      setUserInput(''); // Reset input when language changes
+      setIsLoading(false);
+    }, 500); // A short delay for transition
+  }, [selectedLang]); // Re-run this effect when selectedLang changes
   useEffect(() => {
     const fetchWordOfTheDay = async () => {
       setIsLoading(true);
@@ -45,10 +61,20 @@ function Wotd() {
     setUserInput(e.target.value.toUpperCase());
   };
 
+<<<<<<< HEAD
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userInput || !wordData) return;
     if (userInput === wordData.word.toUpperCase()) {
+=======
+  const handleLanguageChange = (event) => {
+    setSelectedLang(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!userInput || !wordData) return;
+>>>>>>> 44cc7cb28540ca307cce4087a84bf8ee5685be47
       navigate('/wotdscore', { state: { word: wordData.word } });
     } else {
       alert('Jawaban masih salah, silakan coba lagi!');
@@ -69,6 +95,7 @@ function Wotd() {
   return (
     <div className="wotd-container">
       <Link to="/game" className="back-arrow-wotd">←</Link>
+<<<<<<< HEAD
 
       <div className="top-right-controls">
         <button className="speaker-button" aria-label="Play audio">
@@ -81,11 +108,26 @@ function Wotd() {
               <option key={lang.code} value={lang.code}>
                 {lang.name}
               </option>
+=======
+      
+      <div className="top-right-controls">
+        <button className="speaker-button" aria-label="Play audio">
+          &#128266;
+        </button>
+        <div className="language-selector">
+          <select value={selectedLang} onChange={handleLanguageChange}>
+            {languages.map(lang => (
+              <option key={lang.code} value={lang.code}>{lang.name}</option>
+>>>>>>> 44cc7cb28540ca307cce4087a84bf8ee5685be47
             ))}
           </select>
         </div>
       </div>
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 44cc7cb28540ca307cce4087a84bf8ee5685be47
       <h1 className="wotd-title">Word of the Day</h1>
 
       {isLoading ? (
