@@ -2,6 +2,7 @@ import axios from 'axios';
 import { S3Client, PutObjectCommand, GetObjectCommand } from '@aws-sdk/client-s3';
 import { v4 as uuidv4 } from 'uuid';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
+import express, { Router, Request, Response, RequestHandler } from 'express';
 
 const s3 = new S3Client({
   endpoint: process.env.WASABI_ENDPOINT,
@@ -44,4 +45,23 @@ export async function fetchTTS(lang: string, text: string): Promise<string | nul
   }
 }
 
+export const onHitTTS: RequestHandler = async (req, res) => {
+  const { lang, text } = req.body;
 
+  if (!lang || !text) {
+    res.status(400).json({ error: 'Missing "lang" or "text" in request body.' });
+  }
+
+  try {
+    const url = await fetchTTS(lang, text);
+    if (!url) {
+      res.status(500).json({ error: 'Failed to generate TTS.' });
+      return;
+    }
+
+    res.status(200).json({ url });
+  } catch (error: any) {
+    console.error('TTS generation error:', error);
+    res.status(500).json({ error: 'Internal server error.' });
+  }
+}

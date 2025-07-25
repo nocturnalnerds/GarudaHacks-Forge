@@ -4,6 +4,7 @@ import { login, register } from "../controllers/AuthController";
 import { toggleUserSolvedQuiz } from "../controllers/QuizController";
 import { getWordOfTheDay, sentenceOfTheDay } from "../controllers/WSOTDController";
 import { sendRequestToAI } from "../controllers/ChatController";
+import { onHitTTS } from "../utils/TTS";
 
 const router = Router();
 
@@ -19,14 +20,15 @@ router.post("/register", register);
 
 const quizRouter = Router();
 
+router.use("/quiz", quizRouter);
+
 quizRouter.get("/solved-quizes/:userId/:difficulty/:language", getUserSolvedQuizzes);
 quizRouter.get("/:id", getQuizById);
 quizRouter.post("/:userId/:quizId", toggleUserSolvedQuiz);
 quizRouter.get("/list-quizes/:userId/:difficulty/:language", getQuizList);
-quizRouter.get("/testQuistion/:language/:difficulty", getTestQuestion);
-router.use("/quiz", quizRouter);
+quizRouter.get("/testQuestion/:language/:difficulty", getTestQuestion);
 quizRouter.post("/checkTestQuestionAnswer", checkTestQuestionAnswer);
-
+quizRouter.post("/tts", onHitTTS);
 const wordRouter = Router();
 
 wordRouter.post("/wotd", getWordOfTheDay);

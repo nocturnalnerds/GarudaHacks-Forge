@@ -36,15 +36,20 @@ export const getUserSolvedQuizzes = async (req: Request, res: Response) => {
 
 export const getQuizById:RequestHandler = async (req, res) => {
     try {
-        const { id } = req.params;
-        const quiz = await prisma.quizProblems.findUnique({
-            where: { id: id },
+        const { id, lang} = req.params;
+        const quizzes = await prisma.quizProblems.findMany({
+            where: {
+            id: id,
+            ...(lang ? { language: lang } : {}),
+            },
         });
 
-        if (!quiz) {
+        if (!quizzes || quizzes.length === 0) {
             res.status(404).json({ error: "Quiz not found." });
             return;
         }
+
+        const quiz = quizzes[Math.floor(Math.random() * quizzes.length)];
 
         res.json(quiz);
     } catch (error) {
