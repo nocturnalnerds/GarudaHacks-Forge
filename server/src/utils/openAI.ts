@@ -8,18 +8,19 @@ export const createOpenAIRequest = async (request: string, promptRole: string, m
     const response = await openai.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
+        {role: 'system', content: `${promptRole}`},
         {
             role: "user",
             content: [
                 {
                     type: "text",
-                    text: promptRole + request,
+                    text: request,
                 },
             ],
         },
         ],
         temperature: 1,
-        max_tokens: 300,
+        max_tokens: 8192,
         top_p: 1,
     });
     return response.choices[0].message.content;

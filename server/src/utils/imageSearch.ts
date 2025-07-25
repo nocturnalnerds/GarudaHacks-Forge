@@ -31,7 +31,7 @@ type BraveImageResponse = {
     [key: string]: any;
 };
 
-const fetchImageFromBrave = async (query: string) => {
+export const fetchImageFromBrave = async (query: string) => {
     try {
         const params = new URLSearchParams({
             q: query,
