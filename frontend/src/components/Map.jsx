@@ -11,6 +11,8 @@ import tugu from '../assets/images/tugu.png';
 import honai from '../assets/images/honai.png';
 import barong from '../assets/images/barong.png';
 import batik from '../assets/images/batik.png';
+import guruImage from '../assets/images/guru.png';
+import check from '../assets/images/check.png';
 
 // Question popup component
 function QuestionPopup({ question, isVisible, onSubmit, onClose }) {
@@ -108,62 +110,55 @@ function Map() {
       <div className="map-inner-wrapper">
         <img src={mapImage} alt="Map" className="responsive-map" />
 
-        {!completed.sumatra && (
-          <img
-            src={piso}
-            alt="Piso"
-            className="icon piso-icon"
-            onClick={() => handleClick('sumatra')}
-          />
-        )}
-        {!completed.java && (
-          <img
-            src={candi}
-            alt="Candi"
-            className="icon candi-icon"
-            onClick={() => handleClick('java')}
-          />
-        )}
-        {!completed.kalimantan && (
-          <img
-            src={rotterdam}
-            alt="Rotterdam"
-            className="icon rotterdam-icon"
-            onClick={() => handleClick('kalimantan')}
-          />
-        )}
-        {!completed.sulawesi && (
-          <img
-            src={tugu}
-            alt="Tugu"
-            className="icon tugu-icon"
-            onClick={() => handleClick('sulawesi')}
-          />
-        )}
-        {!completed.papua && (
-          <img
-            src={honai}
-            alt="Honai"
-            className="icon honai-icon"
-            onClick={() => handleClick('papua')}
-          />
-        )}
-        {!completed.bali && (
-          <img
-            src={barong}
-            alt="Barong"
-            className="icon barong-icon"
-            onClick={() => handleClick('bali')}
-          />
-        )}
-        {!completed.madura && (
-          <img
-            src={batik}
-            alt="Batik"
-            className="icon batik-icon"
-            onClick={() => handleClick('madura')}
-          />
-        )}
+        <img
+          src={completed.sumatra ? check : piso}
+          alt={completed.sumatra ? "Completed" : "Piso"}
+          className={`icon piso-icon ${completed.sumatra ? 'completed-icon' : ''}`}
+          style={completed.sumatra ? { width: '50px' } : {}}
+          onClick={() => !completed.sumatra && handleClick('sumatra')}
+        />
+        <img
+          src={completed.java ? check : candi}
+          alt={completed.java ? "Completed" : "Candi"}
+          className={`icon candi-icon ${completed.java ? 'completed-icon' : ''}`}
+          style={completed.java ? { width: '50px' } : {}}
+          onClick={() => !completed.java && handleClick('java')}
+        />
+        <img
+          src={completed.kalimantan ? check : rotterdam}
+          alt={completed.kalimantan ? "Completed" : "Rotterdam"}
+          className={`icon rotterdam-icon ${completed.kalimantan ? 'completed-icon' : ''}`}
+          style={completed.kalimantan ? { width: '50px' } : {}}
+          onClick={() => !completed.kalimantan && handleClick('kalimantan')}
+        />
+        <img
+          src={completed.sulawesi ? check : tugu}
+          alt={completed.sulawesi ? "Completed" : "Tugu"}
+          className={`icon tugu-icon ${completed.sulawesi ? 'completed-icon' : ''}`}
+          style={completed.sulawesi ? { width: '50px' } : {}}
+          onClick={() => !completed.sulawesi && handleClick('sulawesi')}
+        />
+        <img
+          src={completed.papua ? check : honai}
+          alt={completed.papua ? "Completed" : "Honai"}
+          className={`icon honai-icon ${completed.papua ? 'completed-icon' : ''}`}
+          style={completed.papua ? { width: '50px' } : {}}
+          onClick={() => !completed.papua && handleClick('papua')}
+        />
+        <img
+          src={completed.bali ? check : barong}
+          alt={completed.bali ? "Completed" : "Barong"}
+          className={`icon barong-icon ${completed.bali ? 'completed-icon' : ''}`}
+          style={completed.bali ? { height: '50px' } : {}}
+          onClick={() => !completed.bali && handleClick('bali')}
+        />
+        <img
+          src={completed.madura ? check : batik}
+          alt={completed.madura ? "Completed" : "Batik"}
+          className={`icon batik-icon ${completed.madura ? 'completed-icon' : ''}`}
+          style={completed.madura ? { width: '50px' } : {}}
+          onClick={() => !completed.madura && handleClick('madura')}
+        />
       </div>
 
       <QuestionPopup
@@ -172,6 +167,9 @@ function Map() {
         onSubmit={handleSubmitAnswer}
         onClose={handleClosePopup}
       />
+      <div className="guru-icon">
+        <img src={guruImage} alt="Guru" />
+      </div>
     </div>
   );
 }

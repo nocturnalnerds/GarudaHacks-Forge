@@ -339,6 +339,19 @@
   transform: translateY(0);
 }
 
+/* Default Guru Icon Style */
+.guru-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.guru-icon img {
+  width: clamp(60px, 10vw, 160px) !important;
+  height: clamp(60px, 10vw, 160px) !important;
+  object-fit: contain;
+}
+
 /* === Mobile Overrides === */
 @media (max-width: 768px) {
   .full-wrapper {
@@ -354,6 +367,29 @@
   .responsive-map {
     width: 100%;
     height: auto;
+  }
+
+  /*
+  ============================================================
+  == THIS IS THE FIX FOR THE GURU ICON ON MOBILE ==
+  ============================================================
+  */
+  .guru-icon {
+    position: fixed;   /* This fixes the icon to the screen/viewport */
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;     /* This ensures it stays on top of the map */
+  }
+  /* ========================================================== */
+
+  .piso-icon,
+  .tugu-icon,
+  .candi-icon,
+  .rotterdam-icon,
+  .honai-icon,
+  .barong-icon,
+  .batik-icon {
+    width: 150px;
   }
 
   /* Reduce glow intensity on mobile for better performance */
@@ -387,4 +423,34 @@
   .question-text {
     font-size: 18px;
   }
+}
+
+/* New class for completed icons */
+.completed-icon {
+  width: 50px !important;
+  height: auto !important;
+}
+
+/* Adjusted left positions for completed icons */
+.piso-icon.completed-icon {
+  left: 20%;
+}
+.candi-icon.completed-icon {
+  left: 35%;
+}
+.rotterdam-icon.completed-icon {
+  left: 57%;
+}
+.tugu-icon.completed-icon {
+  left: 43%;
+}
+.honai-icon.completed-icon {
+  left: 90%;
+}
+.barong-icon.completed-icon {
+  left: 52%;
+  top: 75%;
+}
+.batik-icon.completed-icon {
+  left: 72%;
 }

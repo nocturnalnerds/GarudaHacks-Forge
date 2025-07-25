@@ -70,7 +70,7 @@
 }
 
 .guru-icon img {
-  width: clamp(40px, 8vw, 80px);
-  height: clamp(40px, 8vw, 80px);
+  width: clamp(60px, 10vw, 160px) !important;
+  height: clamp(60px, 10vw, 160px) !important;
   object-fit: contain;
 }
