@@ -1,66 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Auth.css';
 
 function Login() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // Future backend integration point:
-    // - Collect form data (email, password)
-    // - Send POST request to your Node.js/Express backend endpoint (e.g., /api/login)
-    // - Handle response (success/error, store token if using JWT)
-    console.log('Logging in user...');
-    // Example of future backend call:
-    /*
+    setErrorMsg('');
+
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: e.target.email.value,
-          password: e.target.password.value
-        })
-      });
-      if (response.ok) {
-        // Store token or session data
-        navigate('/home');
-      } else {
-        // Handle error (show error message to user)
-      }
+      const apiUrl = import.meta.env.VITE_BE_API;
+      const response = await axios.post(`${apiUrl}/login`, { email, password });
+
+      const { token } = response.data;
+      localStorage.setItem('token', token);
+
+      navigate('/home');
     } catch (error) {
-      // Handle network error
+      if (error.response && error.response.data && error.response.data.message) {
+        setErrorMsg(error.response.data.message);
+      } else {
+        setErrorMsg('Login failed. Please check your network or credentials.');
+      }
     }
-    */
-    
-    // For now, navigate to home page
-    navigate('/home');
   };
 
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleLogin}>
         <h1 className="auth-title">Welcome Back</h1>
+
+        {errorMsg && <div className="auth-error">{errorMsg}</div>}
+
         <div className="input-group">
           <label htmlFor="email">Email</label>
           <input 
             type="email" 
-            id="email" 
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com" 
             required 
           />
         </div>
+
         <div className="input-group">
           <label htmlFor="password">Password</label>
           <input 
             type="password" 
-            id="password" 
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••" 
             required 
           />
         </div>
+
         <button type="submit" className="auth-button">Login</button>
+
         <p className="auth-switch">
           Don't have an account? <Link to="/register">Sign Up</Link>
         </p>

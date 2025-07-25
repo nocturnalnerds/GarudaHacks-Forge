@@ -21,13 +21,21 @@ model User {
 }
 
 
+enum difficulty{
+  easy
+  medium
+  hard
+}
+
 model QuizProblems {
   id        String        @id @default(auto()) @map("_id") @db.ObjectId
   question  String
   answer    String
-
+  difficulty String 
+  language String
   solvedBy  UserSolved[]
 }
+
 
 model UserSolved {
   id         String       @id @default(auto()) @map("_id") @db.ObjectId
@@ -38,3 +46,52 @@ model UserSolved {
   solved     Boolean      @default(false)
   solvedAt   DateTime     @default(now())
 }
+
+
+model Chat{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  from    String
+  to      String
+  translation String?
+  message String
+  timestamp DateTime @default(now())
+  imageUrl String?
+}
+
+model wotd{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  content String
+  translation String
+  definition String
+  example String
+  language String
+  signedUrl String
+}
+
+model sotd{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  content String
+  translation String
+  definition String
+  example String
+  language String
+  signedUrl String
+}
+
+model testQuestion{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  question String
+  choices String[]
+  answer   String
+  language String
+  difficulty String 
+}
+
+model CeritaRakyat{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  picture String
+  caption String
+  audio String[] // formatnya akan ada {language: "...", audiokey: "..."}
+}
+

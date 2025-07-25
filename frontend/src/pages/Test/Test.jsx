@@ -24,12 +24,20 @@ function Test() {
               <option value="jawa">Jawa</option>
               <option value="bali">Bali</option>
               <option value="sunda">Sunda</option>
+              <option value="madura">Madura</option>
+              {/* <option value="makasar">Makasar</option> */}
             </select>
             <p className="info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </div>
         <div className="test-wrapper">
-          <Link to="/exam" className="test-card">
+          <Link
+            to={`/exam?language=${language}&difficulty=${difficulty}`}
+            className={`test-card ${(!difficulty || !language) ? 'disabled' : ''}`}
+            onClick={(e) => {
+              if (!difficulty || !language) e.preventDefault(); // Prevent navigation if not selected
+            }}
+          >
             <button className="test-button" disabled={!difficulty || !language}>Mulai</button>
           </Link>
         </div>
