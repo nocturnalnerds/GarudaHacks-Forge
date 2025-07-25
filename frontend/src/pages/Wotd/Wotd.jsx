@@ -14,7 +14,7 @@ function Wotd() {
       setIsLoading(true);
       const apiUrl = import.meta.env.VITE_BE_API;
       try {
-        const response = await axios.get(`${apiUrl}/api/wotd`);
+        const response = await axios.get(`${apiUrl}/wotd/${lang}`);
         setWordData(response.data);
       } catch (error) {
         console.error('Failed to fetch word of the day:', error);
@@ -22,7 +22,6 @@ function Wotd() {
         setIsLoading(false);
       }
       setTimeout(() => {
-        setWordData(mockData);
         setIsLoading(false);
       }, 1000);
     };
@@ -45,7 +44,6 @@ function Wotd() {
     }
   };
 
-  // --- Render Logic ---
   const renderWordPlaceholders = () => {
     if (!wordData) return null;
     return wordData.word.split('').map((_, index) => (

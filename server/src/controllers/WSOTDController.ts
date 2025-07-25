@@ -68,7 +68,12 @@ export const getWordOfTheDay = async (language: string) => {
                 signedUrl: signedUrl || '',
             }
         });
-        console.log('TTS saved to output.wav');
+        return {
+            sotd: word.wotd,
+            translation: word.indonesian_translation,
+            definisi: word.definisi_singkat,
+            example: word.contoh_penggunaan_bahasa_daerah_tersebut
+        };
     } catch (error) {
         console.log(error);
     }
@@ -107,6 +112,12 @@ export const sentenceOfTheDay = async (language: string) => {
                 signedUrl: signedUrl || ''
             }
         });
+        return {
+            sotd: sentence.sotd,
+            translation: sentence.indonesian_translation,
+            definisi: sentence.definisi_singkat,
+            example: sentence.contoh_penggunaan_bahasa_daerah_tersebut
+        };
 
     } catch (error) {
         console.log(error);
@@ -119,9 +130,9 @@ const wordRouter = Router();
 wordRouter.post('/wotd/:language', async (req, res) => {
     const { language } = req.params;
     try {
-        console.log(language)
-        await getWordOfTheDay(language);
-        res.status(200).json({ message: 'Word of the Day generated successfully.' });
+        const result = await getWordOfTheDay(language);
+        
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({ error: 'Failed to generate Word of the Day.' });
     }
