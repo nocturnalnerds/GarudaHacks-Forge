@@ -1,0 +1,83 @@
+.auth-container {
+  width: 100%;
+  min-height: 100vh; /* Full viewport height for vertical centering */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 0; /* Remove padding to avoid shifting */
+  margin: 0 auto; /* Ensure no horizontal offset */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.auth-form {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%; /* Allow full width on small screens */
+  max-width: 450px; /* Limit max width for larger screens */
+  text-align: center;
+  color: #3e2d20;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.auth-title {
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #3e2d20;
+  background-color: #f0e9e2;
+  font-family: 'Montagu Slab', sans-serif;
+  font-size: 1rem;
+  color: #3e2d20; /* Dark brown text color for input fields */
+}
+
+.input-group input::placeholder {
+  color: #3e2d20; /* Dark brown placeholder text */
+  opacity: 0.6;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #3e2d20;
+  color: #f0e9e2;
+  font-family: 'Montagu Slab', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #5a4535;
+}
+
+.auth-switch {
+  margin-top: 1.5rem;
+}
+
+.auth-switch a {
+  color: #3e2d20;
+  font-weight: 700;
+  text-decoration: underline;
+}

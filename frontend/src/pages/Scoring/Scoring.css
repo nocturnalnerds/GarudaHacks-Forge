@@ -1,0 +1,74 @@
+.scoring-container {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: #3e2d20;
+  margin-top: 0;
+  padding-top: 1rem;
+  background: url('https://via.placeholder.com/400x600.png?text=Background+Image') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.scoring-title {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.scoring-card {
+  background-color: rgba(162, 107, 74, 0.9);
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoring-result {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: #a3e4a3;
+  margin: 0;
+}
+
+.scoring-score {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: 0.5rem 0;
+}
+
+.scoring-message {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin: 0.5rem 0;
+}
+
+.scoring-button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #a26b4a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .scoring-card {
+    width: 90%;
+  }
+  .scoring-button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
