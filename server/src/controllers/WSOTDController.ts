@@ -69,7 +69,7 @@ export const getWordOfTheDay = async (language: string) => {
             }
         });
         return {
-            sotd: word.wotd,
+            wotd: word.wotd,
             translation: word.indonesian_translation,
             definisi: word.definisi_singkat,
             example: word.contoh_penggunaan_bahasa_daerah_tersebut
