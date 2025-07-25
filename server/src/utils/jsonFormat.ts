@@ -1,13 +1,11 @@
 export const JsonFormatResponseChat = 
     `
     {
-        response:{
-            wotd:{
-                ....
-            },
-            indonesian_translation:{
-                ....
-            }
+        "response":{
+            "message":....,
+            "indonesian_translation":....,
+            "image": "true or false",
+            "keyMessage": "1 sampai 3 kata saja dari inti pembicaraan untuk gambar yang ditunjukkan",
         }
     }
         without any return or else, just json and without \\n

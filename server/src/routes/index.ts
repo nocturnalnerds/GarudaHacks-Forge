@@ -3,6 +3,7 @@ import { getUserSolvedQuizzes, getQuizById, getQuizList, getTestQuestion, checkT
 import { login, register } from "../controllers/AuthController";
 import { toggleUserSolvedQuiz } from "../controllers/QuizController";
 import { getWordOfTheDay, sentenceOfTheDay } from "../controllers/WSOTDController";
+import { sendRequestToAI } from "../controllers/ChatController";
 
 const router = Router();
 
@@ -32,6 +33,8 @@ wordRouter.post("/wotd", getWordOfTheDay);
 wordRouter.post("/sotd", sentenceOfTheDay);
 
 router.use("/word", wordRouter);
+
+router.post("/chatAI/:lang/:userId", sendRequestToAI)
 
 
 
