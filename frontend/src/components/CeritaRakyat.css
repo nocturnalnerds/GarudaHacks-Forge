@@ -97,6 +97,10 @@
   display: block;
 }
 
+.story-card-link {
+  text-decoration: none;
+}
+
 /* Make carousel snap on mobile for better UX */
 @media (max-width: 768px) {
   .cerita-container {

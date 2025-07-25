@@ -13,6 +13,8 @@ import Rules from './pages/Test/Rules';
 import Test from './pages/Test/Test';
 import Exam from './pages/Exam/Exam';
 import Scoring from './pages/Scoring/Scoring';
+import Map from './components/Map';
+import Malin from './components/MalinKundang';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
       <Route path="/test" element={<Test />} />
       <Route path="/exam" element={<Exam />} />
       <Route path="/scoring" element={<Scoring />} />
+      <Route path="/map" element={<Map />} />
+      <Route path="/malinkundang" element={<Malin />} />
     </Routes>
   );
 }

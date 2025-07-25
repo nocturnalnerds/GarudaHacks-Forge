@@ -1,0 +1,232 @@
+/* --- Main Storyboard Container --- */
+.storyboard-container {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  color: #4d3a2a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 1.5rem;
+}
+
+/* --- Top Controls: Back Arrow, Speaker, Language --- */
+.back-arrow-story {
+  position: absolute;
+  top: 2rem;
+  left: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #4d3a2a;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.back-arrow-story:hover {
+  transform: scale(1.1);
+}
+
+.top-right-controls {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.speaker-button {
+  background: none;
+  border: none;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #4d3a2a;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0;
+}
+
+.speaker-button:hover {
+  transform: scale(1.1);
+}
+
+.language-selector select {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #4d3a2a;
+  background-color: #fff;
+  color: #4d3a2a;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+/* --- [START] NEW Navigation Buttons (Prev/Next) --- */
+.btn-arrow {
+  /* Positioning */
+  position: absolute;
+  top: 50%;
+  
+  /* Box Model */
+  width: 4rem; /* Adjusted size for the layout */
+  height: 4rem;
+  display: block;
+  margin: 0;
+  border: none;
+
+  /* Appearance */
+  color: transparent;
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  
+  /* Other */
+  transition: all 150ms ease-out;
+  z-index: 10; /* Ensure arrows are above the image */
+}
+
+.btn-arrow::before,
+.btn-arrow::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #606060;
+  transition: all 150ms ease-out;
+}
+
+.btn-arrow::before {
+  width: 75%;
+  height: 25%;
+}
+
+.btn-arrow::after {
+  width: 25%;
+  height: 75%;
+}
+
+.btn-arrow:hover, 
+.btn-arrow:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-arrow:hover::before,
+.btn-arrow:hover::after,
+.btn-arrow:focus::before,
+.btn-arrow:focus::after {
+  background-color: #404040;
+}
+
+.btn-arrow.btn-arrow-left,
+.btn-arrow.btn-arrow-right {
+  /* Center the L-shape inside the button */
+  transform: translateY(-50%); 
+}
+
+.btn-arrow.btn-arrow-left::before,
+.btn-arrow.btn-arrow-left::after,
+.btn-arrow.btn-arrow-right::before,
+.btn-arrow.btn-arrow-right::after {
+  top: 12.5%;
+  left: 12.5%;
+}
+
+.btn-arrow.btn-arrow-left {
+  left: 2rem;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.btn-arrow.btn-arrow-right {
+  right: 2rem;
+  transform: translateY(-50%) rotate(135deg);
+}
+/* --- [END] NEW Navigation Buttons --- */
+
+
+/* --- Wrapper for Image and Arrows --- */
+.storyboard-interactive-image {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Main Storyboard Content --- */
+.storyboard-main {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.storyboard-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #e0d6cc;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.storyboard-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+.storyboard-subtitle-container {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.storyboard-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: #3b2e21;
+  margin: 0;
+  line-height: 1.6;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .storyboard-container {
+    padding: 1.5rem;
+    padding-top: 7rem;
+    justify-content: flex-start;
+  }
+
+  .back-arrow-story, .top-right-controls {
+    top: 1.5rem;
+  }
+  .back-arrow-story { left: 1.5rem; }
+  .top-right-controls { right: 1.5rem; }
+
+  .btn-arrow {
+      width: 3rem;
+      height: 3rem;
+  }
+
+  .btn-arrow.btn-arrow-left { left: 0.5rem; }
+  .btn-arrow.btn-arrow-right { right: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  .storyboard-subtitle {
+    font-size: 1rem;
+  }
+}
