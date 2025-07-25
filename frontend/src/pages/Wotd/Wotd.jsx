@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Wotd.css';
-
+import axios from 'axios';
 function Wotd() {
-  // --- Hooks ---
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
-  // --- State Management ---
   const [wordData, setWordData] = useState(null);
   const [userInput, setUserInput] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  // --- Data Fetching ---
   useEffect(() => {
     const fetchWordOfTheDay = async () => {
       setIsLoading(true);
-      const mockData = {
-        word: 'BUDAYA',
-        definition: 'Hasil kegiatan dan penciptaan batin (akal budi) manusia seperti kepercayaan, kesenian, dan adat istiadat.',
-        hints: [
-          'Diwariskan dari generasi ke generasi.',
-          'Mencakup bahasa, tarian, dan makanan khas.',
-          'Setiap daerah di Indonesia memilikinya.'
-        ]
-      };
+      const apiUrl = import.meta.env.VITE_BE_API;
+      try {
+        const response = await axios.get(`${apiUrl}/api/wotd`);
+        setWordData(response.data);
+      } catch (error) {
+        console.error('Failed to fetch word of the day:', error);
+      } finally {
+        setIsLoading(false);
+      }
       setTimeout(() => {
         setWordData(mockData);
         setIsLoading(false);
@@ -33,7 +30,6 @@ function Wotd() {
     fetchWordOfTheDay();
   }, []);
 
-  // --- Event Handlers ---
   const handleInputChange = (event) => {
     setUserInput(event.target.value.toUpperCase());
   };
@@ -41,16 +37,12 @@ function Wotd() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!userInput || !wordData) return;
-
-    // Check if the answer is correct
     if (userInput === wordData.word) {
-      // On correct answer, navigate to score page and pass the word
+
       navigate('/wotdscore', { state: { word: wordData.word } });
     } else {
-      // On incorrect answer, show an error and let user try again
       alert('Jawaban masih salah, silakan coba lagi!');
     }
-    // Don't clear input on wrong answer so user can edit
   };
 
   // --- Render Logic ---
