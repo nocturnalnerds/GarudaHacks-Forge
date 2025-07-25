@@ -14,6 +14,17 @@
   background-size: cover;
 }
 
+.back-arrow {
+  display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-decoration: none;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
 .test-title {
   font-size: clamp(2.5rem, 7vw, 4rem);
   margin-bottom: 4rem;

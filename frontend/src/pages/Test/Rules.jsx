@@ -5,6 +5,7 @@ import './Rules.css';
 function Rules() {
   return (
     <div className="rules-container">
+      <Link to="/home" className="back-arrow">←</Link>
       <h1 className="rules-title">Peraturan</h1>
       <div className="rules-options">
         <div className="rules-wrapper">

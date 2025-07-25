@@ -8,13 +8,11 @@ import gameImage from '../../assets/images/x.png';
 // Import the new test image
 import testImage from '../../assets/images/test.png';
 
-
 function Home() {
   return (
     <div className="home-container">
       <h1 className="home-title">Pilih Kegiatan</h1>
       <div className="options-container">
-
         {/* Option 1: Read Stories */}
         <div className="option-wrapper">
           <Link to="/cerita-rakyat" className="option-card">
@@ -33,12 +31,11 @@ function Home() {
 
         {/* Option 3: Test - The new option is added here */}
         <div className="option-wrapper">
-          <Link to="/test" className="option-card">
+          <Link to="/rules" className="option-card">
             <img src={testImage} alt="Test" />
           </Link>
           <div className="option-label">Test</div>
         </div>
-
       </div>
     </div>
   );

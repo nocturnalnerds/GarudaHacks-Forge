@@ -1,0 +1,76 @@
+.game-rules-container {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  color: #3e2d20;
+  background: url('../../assets/images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+.back-arrow {
+  display: inline-block;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1rem;
+  color: #333;
+  text-decoration: none;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.game-rules-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.rules-content {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  width: clamp(250px, 80%, 600px);
+  text-align: left;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.rules-content ol {
+  padding-left: 1.5rem;
+}
+
+.start-button {
+  margin-top: 2rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background-color: #a26b4a;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.start-button:hover {
+  background-color: #8c5d40;
+}
+
+.guru-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.guru-icon img {
+  width: clamp(40px, 8vw, 80px);
+  height: clamp(40px, 8vw, 80px);
+  object-fit: contain;
+}

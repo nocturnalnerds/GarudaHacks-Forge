@@ -15,14 +15,17 @@
 
 /* --- Top Controls: Back Arrow, Speaker, Language --- */
 .back-arrow-story {
-  position: absolute;
-  top: 2rem;
-  left: 2.5rem;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: #4d3a2a;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  display: inline-block;
+  font-size: 2.5rem; /* Increased size */
+  padding: 10px 20px; /* Added padding for better click area */
+  color: #333;
   text-decoration: none;
+  position: absolute;
+  top: 1.5rem; /* Adjusted positioning */
+  left: 1.5rem; /* Adjusted positioning */
+  background-color: rgba(255, 255, 255, 0.7); /* Added background for visibility */
+  border-radius: 5px; /* Rounded corners */
+  z-index: 3; /* Ensure it stays above other elements */
 }
 
 .back-arrow-story:hover {
@@ -36,6 +39,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  z-index: 20; 
 }
 
 .speaker-button {
@@ -46,6 +50,7 @@
   cursor: pointer;
   transition: transform 0.2s ease;
   padding: 0;
+  z-index: 21;
 }
 
 .speaker-button:hover {

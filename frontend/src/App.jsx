@@ -15,6 +15,8 @@ import Exam from './pages/Exam/Exam';
 import Scoring from './pages/Scoring/Scoring';
 import Map from './components/Map';
 import Malin from './components/MalinKundang';
+import GameRules from './pages/Game/GameRules';
+import Language from './components/Language';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
       <Route path="/scoring" element={<Scoring />} />
       <Route path="/map" element={<Map />} />
       <Route path="/malinkundang" element={<Malin />} />
+      <Route path="/game-rules" element={<GameRules />} />
+      <Route path="/language" element={<Language />} />
     </Routes>
   );
 }

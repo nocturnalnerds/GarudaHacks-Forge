@@ -52,35 +52,34 @@
 }
 
 
-/* --- Bottom Content Styling (REVISED) --- */
+/* --- Bottom Content Styling --- */
 .bottom-content {
   width: 100%;
   display: flex;
-  justify-content: center; /* Ensures the carousel itself is centered */
+  justify-content: center;
 }
 
 .story-carousel {
   display: flex;
-  gap: 2.5rem; /* Increased gap slightly */
+  gap: 2.5rem;
   overflow-x: auto;
   padding: 1.5rem;
-  
-  /* FIX #1: This will now always center the cards */
-  justify-content: center; 
-  
-  /* FIX #2: Removed the max-width to allow it to grow */
-  width: 100%; 
+  justify-content: center;
+  width: 100%;
 }
 
-/* Hide scrollbar for a cleaner look */
+/* Hide scrollbar */
 .story-carousel::-webkit-scrollbar { display: none; }
 .story-carousel { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Normalize link wrapping to not affect layout */
+.story-card-link {
+  text-decoration: none;
+  display: contents; /* ensures it doesn’t add extra layout */
+}
+
 .story-card {
-  /* FIX #3: Increased the card size significantly for larger screens.
-     Min size: 280px, Preferred size: 30% of viewport width, Max size: 550px */
   flex: 0 0 clamp(280px, 30vw, 550px);
-  
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -95,23 +94,21 @@
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: cover;
 }
 
-.story-card-link {
-  text-decoration: none;
-}
-
-/* Make carousel snap on mobile for better UX */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .cerita-container {
     justify-content: center;
     gap: 2rem;
   }
+
   .story-carousel {
-    /* On mobile, we want the scroll to start from the beginning, not the center */
     justify-content: flex-start;
     scroll-snap-type: x mandatory;
   }
+
   .story-card {
     scroll-snap-align: center;
   }
