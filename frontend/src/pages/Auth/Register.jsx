@@ -1,52 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Auth.css';
+
 
 function Register() {
   const navigate = useNavigate();
-
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
   const handleRegister = async (e) => {
     e.preventDefault();
-    // Future backend integration point:
-    // - Collect form data (name, email, password)
-    // - Send POST request to your Node.js/Express backend endpoint (e.g., /api/register)
-    // - Handle response (success/error)
-    console.log('Registering user...');
-    // Example of future backend call:
-    /*
+    setErrorMsg('');
     try {
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: e.target.name.value,
-          email: e.target.email.value,
-          password: e.target.password.value
-        })
-      });
-      if (response.ok) {
-        navigate('/login');
-      } else {
-        // Handle error (show error message to user)
-      }
+      const apiUrl = import.meta.env.VITE_BE_API;
+      const response = await axios.post(`${apiUrl}/register`, { email, name, password });
+      console.log(response);
+      setErrorMsg(response.data.message)
+      navigate('/login');
     } catch (error) {
-      // Handle network error
+      if (error.response && error.response.data && error.response.data.message) {
+        setErrorMsg(error.response.data.message);
+      } else {
+        setErrorMsg('Login Gagal. Tolong cek kembali data Anda.');
+      }
     }
-    */
-    
-    // For now, navigate to login page after registration
-    navigate('/login');
   };
 
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleRegister}>
         <h1 className="auth-title">Create Account</h1>
+        
+        {errorMsg && <div className="auth-error">{errorMsg}</div>}
+        
         <div className="input-group">
           <label htmlFor="name">Name</label>
           <input 
             type="text" 
             id="name" 
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             placeholder="Your Name" 
             required 
           />
@@ -55,7 +50,9 @@ function Register() {
           <label htmlFor="email">Email</label>
           <input 
             type="email" 
-            id="email" 
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com" 
             required 
           />
@@ -64,7 +61,9 @@ function Register() {
           <label htmlFor="password">Password</label>
           <input 
             type="password" 
-            id="password" 
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••" 
             required 
           />
