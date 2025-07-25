@@ -31,8 +31,8 @@ quizRouter.post("/checkTestQuestionAnswer", checkTestQuestionAnswer);
 quizRouter.post("/tts", onHitTTS);
 const wordRouter = Router();
 
-wordRouter.post("/wotd", getWordOfTheDay);
-wordRouter.post("/sotd", sentenceOfTheDay);
+// wordRouter.post("/wotd", getWordOfTheDay);
+// wordRouter.post("/sotd", sentenceOfTheDay);
 
 router.use("/word", wordRouter);
 

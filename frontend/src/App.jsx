@@ -20,6 +20,7 @@ import Language from './components/Language';
 import Selector from './pages/Selector/Selector';
 import Wotd from './pages/Wotd/Wotd';
 import WotdScore from './pages/Wotd/wotdscore';
+import Chat from './pages/Chat/Chat';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       <Route path="/selector" element={<Selector />} />
       <Route path="/wotd" element={<Wotd />} />
       <Route path="/wotdscore" element={<WotdScore />} />
+      <Route path="/chat/:language" element={<Chat />} /> 
     </Routes>
   );
 }

@@ -23,13 +23,15 @@ export const sendRequestToAI: RequestHandler = async (req, res) => {
         });
         
 
-        const prompt = `Kamu adalah seorang individu berwawasan luas tentang budayamu sebagai orang ${lang}, berbicaralah menggunakan bahasa daerah ${lang} dengan fasih, jika apa yang diminta user membutuhkan visualisasi gambar, beri pada response json ini ${JsonFormatResponseChat} dan toggle image jadi true jika dirasah butuh untuk memberi pemahamin lebih terkait apa yang anda bahas. Dan jangan gunakan attribut agama / ras / suku apapun`
+        const prompt = `Kamu adalah seorang individu berwawasan luas tentang budayamu sebagai orang ${lang}, berbicaralah menggunakan bahasa daerah ${lang} dengan fasih, jika apa yang diminta user membutuhkan visualisasi gambar, beri pada response json ini ${JsonFormatResponseChat} dan toggle image jadi true HANYA DAN SEKALI LAGI HANYA jika dirasah butuh untuk memberi pemahamin lebih terkait apa yang anda bahas. Dan jangan gunakan attribut agama / ras / suku / politik ataupun hal kontroversial apapun`
 
         const balasan = await createOpenAIRequest(message, prompt) as string;
         if(!balasan){
             res.status(500).json("AI failed to give response!");
             return;
         }
+
+        
 
         let AIResponse;
         try {
@@ -39,11 +41,12 @@ export const sendRequestToAI: RequestHandler = async (req, res) => {
             res.status(500).json({ error: 'AI response is not valid JSON.' });
             return;
         }
+        
         const imageToggle = AIResponse.response.image as boolean;
+        console.log(imageToggle);
         let imageFetch;
         if(imageToggle){
             imageFetch = await fetchImageFromBrave(AIResponse.response.keyMessage);
-            console.log(imageFetch)
         }
         await prisma.chat.create({
             data:{
@@ -56,6 +59,7 @@ export const sendRequestToAI: RequestHandler = async (req, res) => {
         })
 
         const customResposne = {
+            id: AIResponse.response.id,
             message: AIResponse.response.message,
             translation: AIResponse.response.indonesian_translation,
             imageUrl: imageFetch || '', 

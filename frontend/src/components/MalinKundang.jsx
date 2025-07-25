@@ -383,7 +383,7 @@ function MalinKundang() {
       <Link to="/cerita-rakyat" className="back-arrow-story">&#x2190;</Link>
       
       <div className="top-right-controls">
-        <button onClick={handlePlayAudio} className="speaker-button" aria-label="Play audio">
+        <button onClick={handlePlayAudio} className="speaker-button" aria-label="Play audio" style={{ fontSize: '5rem', padding: '0.5em 1em' }}>
           &#128266;
         </button>
         <div className="language-selector">
