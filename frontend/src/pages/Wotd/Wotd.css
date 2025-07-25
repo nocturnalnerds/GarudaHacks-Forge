@@ -1,0 +1,198 @@
+/* Main container for the Word of the Day page */
+.wotd-container {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Montagu Slab', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #3e2d20; 
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+/* Back arrow styling */
+.back-arrow-wotd {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 2.5rem; 
+  color: #333; 
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  padding: 0 15px;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.back-arrow-wotd:hover {
+  transform: scale(1.1);
+}
+
+/* --- [NEW] Top Right Controls --- */
+.top-right-controls {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 20; 
+}
+
+.speaker-button {
+  background: none;
+  border: none;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #4d3a2a;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0;
+  z-index: 21;
+}
+
+.speaker-button:hover {
+  transform: scale(1.1);
+}
+
+.language-selector select {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #4d3a2a;
+  background-color: #fff;
+  color: #4d3a2a;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Main title "Word of the Day" */
+.wotd-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: bold;
+  color: #3e2723;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Box containing definition and hints */
+.wotd-hint-box {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid #d3c5a8;
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.wotd-definition {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.wotd-hints {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Container for the word placeholders (underscores) */
+.wotd-word-display {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Individual underscore placeholder */
+.word-placeholder {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #3e2723;
+}
+
+/* Form for user input */
+.wotd-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Text input field */
+.wotd-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 2px solid #d3c5a8;
+  border-radius: 25px;
+  background-color: #fffaf0;
+  color: #5d4037;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.wotd-input::placeholder {
+  color: #a1887f;
+}
+
+.wotd-input:focus {
+  outline: none;
+  border-color: #a1887f;
+  box-shadow: 0 0 10px rgba(161, 136, 127, 0.3);
+}
+
+/* Submit button */
+.wotd-submit-button {
+  padding: 0.8rem 3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #694C28; 
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wotd-submit-button:hover {
+  background-color: #5a3f1e; 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading text style */
+.loading-text {
+    font-size: 1.5rem;
+    color: #5d4037;
+}
+
+/* --- [NEW] Responsive Design --- */
+@media (max-width: 768px) {
+  .wotd-container {
+    padding-top: 7rem; /* Push content down to avoid overlap */
+    justify-content: flex-start;
+  }
+
+  .back-arrow-wotd, .top-right-controls {
+    top: 1.5rem;
+  }
+  .back-arrow-wotd { left: 1.5rem; }
+  .top-right-controls { right: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .wotd-title {
+    margin-top: 0;
+  }
+}

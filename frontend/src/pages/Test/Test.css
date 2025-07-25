@@ -1,0 +1,110 @@
+.test-container {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  color: #3e2d20;
+  margin-top: 0;
+  padding-top: 0;
+  background: url('https://via.placeholder.com/400x600.png?text=Background+Image') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.back-arrow {
+  display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-decoration: none;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.test-title {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  margin-bottom: 4rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.test-options {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(2rem, 8vw, 6rem);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.test-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.test-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.test-card select {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 400px; /* Increased width for longer horizontal dropdowns */
+  border-radius: 5px;
+  border: 1px solid #a26b4a;
+}
+
+.test-button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #a26b4a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.test-button:disabled {
+  background-color: #a3a3a3;
+  cursor: not-allowed;
+}
+
+.info-text {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-align: center;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .test-options {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .test-card {
+    width: 100%;
+  }
+  .test-button {
+    width: 100%;
+    max-width: 200px;
+  }
+  .test-title {
+    margin-top: 1rem;
+  }
+}

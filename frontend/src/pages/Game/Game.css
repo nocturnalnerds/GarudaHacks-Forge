@@ -1,0 +1,92 @@
+.back-arrow {
+  display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.game-container {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  color: #3e2d20;
+  /* Raise everything up */
+  margin-top: 1.5rem;
+}
+
+.game-title {
+  font-size: clamp(3rem, 8vw, 5rem); /* Larger title */
+  margin-top: 0.5rem; /* Less space above */
+  margin-bottom: 2rem; /* Less space below */
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.game-options {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(2rem, 6vw, 4rem); /* Adjusted gap for 3 items */
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 0.5rem; /* Raise images */
+}
+
+.option-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option-wrapper:hover .game-card { /* Corrected class selector */
+  transform: scale(1.05) translateY(-10px);
+  transition: transform 0.3s ease; /* Added transition for smoothness */
+}
+.game-card {
+  transition: transform 0.3s ease; /* Added transition for smoothness */
+}
+
+
+.option-label {
+  margin-top: 1.5rem;
+  font-size: 1.5rem; /* Larger label */
+  font-weight: 700;
+  color: #3e2d20;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease; /* Added transition */
+}
+
+.option-wrapper:hover .option-label {
+  color: #a26b4a;
+}
+
+.game-card img {
+  width: clamp(200px, 20vw, 300px); /* Slightly adjusted for 3 items */
+  height: clamp(200px, 20vw, 300px); /* Slightly adjusted for 3 items */
+  object-fit: cover;
+  display: block;
+}
+
+.back-to-home {
+  margin-top: 4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3e2d20;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.back-to-home:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}

@@ -1,0 +1,115 @@
+/* Main container setup using Flexbox */
+.cerita-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  color: #4d3a2a;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+/* Back arrow positioned in the top left */
+.back-arrow {
+  position: absolute;
+  top: 2rem;
+  left: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #4d3a2a;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-decoration: none; 
+}
+
+.back-arrow:hover {
+  transform: scale(1.1);
+}
+
+
+/* --- Top Content Styling --- */
+.top-content {
+  text-align: center;
+  width: 100%;
+}
+
+.cerita-title {
+  font-size: clamp(2rem, 5vw, 3.5rem); 
+  font-weight: 700;
+  display: inline-block;
+  border-bottom: 4px solid #4d3a2a;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cerita-description {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+/* --- Bottom Content Styling --- */
+.bottom-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.story-carousel {
+  display: flex;
+  gap: 2.5rem;
+  overflow-x: auto;
+  padding: 1.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Hide scrollbar */
+.story-carousel::-webkit-scrollbar { display: none; }
+.story-carousel { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Normalize link wrapping to not affect layout */
+.story-card-link {
+  text-decoration: none;
+  display: contents; /* ensures it doesn’t add extra layout */
+}
+
+.story-card {
+  flex: 0 0 clamp(280px, 30vw, 550px);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+  transform: scale(1.05);
+}
+
+.story-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cerita-container {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .story-carousel {
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
+  }
+
+  .story-card {
+    scroll-snap-align: center;
+  }
+}
