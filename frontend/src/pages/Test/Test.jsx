@@ -8,6 +8,7 @@ function Test() {
 
   return (
     <div className="test-container">
+      <Link to="/rules" className="back-arrow">←</Link>
       <h1 className="test-title">Test</h1>
       <div className="test-options">
         <div className="test-wrapper">

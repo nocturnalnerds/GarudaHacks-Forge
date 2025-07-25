@@ -10,7 +10,7 @@ function Game() {
   return (
     <div className="game-container">
       {/* Back arrow at the top, similar to CeritaRakyat */}
-      <Link to="/home" className="back-arrow">&#x2190;</Link>
+      <Link to="/home" className="back-arrow">←</Link>
 
       <h1 className="game-title">Pilihlah opsi</h1>
       <div className="game-options">
@@ -21,7 +21,7 @@ function Game() {
           <div className="option-label">Guru</div>
         </div>
         <div className="option-wrapper">
-          <Link to="#" className="game-card">
+          <Link to="/game-rules" className="game-card">
             <img src={bumiImage} alt="Jelajah Budaya" />
           </Link>
           <div className="option-label">Jelajah Budaya</div>
