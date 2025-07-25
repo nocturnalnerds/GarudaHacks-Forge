@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './GameRules.css';
 import guruImage from '../../assets/images/guru.png';
 
 function GameRules() {
+  const navigate = useNavigate();
+
   return (
     <div className="game-rules-container">
       <Link to="/game" className="back-arrow">←</Link>
@@ -16,7 +18,7 @@ function GameRules() {
         </ol>
       </div>
       <Link to="/map" className="start-button">Mulai</Link>
-      <div className="guru-icon">
+      <div className="guru-icon" onClick={() => navigate('/selector')}>
         <img src={guruImage} alt="Guru" />
       </div>
     </div>

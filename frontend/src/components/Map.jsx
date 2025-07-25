@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Map.css';
 
 import background from '../assets/images/background.png';
@@ -73,6 +73,7 @@ function Map() {
   const [currentQuestion, setCurrentQuestion] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [currentIsland, setCurrentIsland] = useState('');
+  const navigate = useNavigate();
 
   const questions = {
     sumatra: "Bagaimana prosesi 'siraman' dilakukan dalam pernikahan adat Sumatra?",
@@ -167,7 +168,7 @@ function Map() {
         onSubmit={handleSubmitAnswer}
         onClose={handleClosePopup}
       />
-      <div className="guru-icon">
+      <div className="guru-icon" onClick={() => navigate('/selector')}>
         <img src={guruImage} alt="Guru" />
       </div>
     </div>
