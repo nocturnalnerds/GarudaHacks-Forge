@@ -4,7 +4,7 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-export async function createOpenAIRequest(request: string, promptRole: string, model: string = "gpt-3.5-turbo", image_url="") {
+export const createOpenAIRequest = async (request: string, promptRole: string, model: string = "gpt-3.5-turbo", image_url="") => {
     const response = await openai.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [

@@ -23,7 +23,7 @@ export const JsonFormatWOTD =
             wotd: ....  , 
             indonesian_translation: .... ,
             definisi_singkat: .... ,
-            contoh_penggunaan: ....
+            contoh_penggunaan_bahasa_daerah_tersebut: ....
         }
 
         without any return or else, just json and without \\n
@@ -37,7 +37,7 @@ export const JsonFormatSOTD =
             sotd: ....  , 
             indonesian_translation: .... ,
             definisi_singkat: .... ,
-            contoh_penggunaan: ....
+            contoh_penggunaan_bahasa_daerah_tersebut: ....
         }
 
         without any return or else, just json and without \\n
